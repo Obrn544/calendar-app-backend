@@ -1,10 +1,13 @@
-import 'dotenv/config';
-import express from 'express';
+const express = require('express');
+require('dotenv').config();
 
 const app = express();
 
 // public directory
 app.use(express.static('public'));
+
+// Lectura y parseo del body
+app.use(express.json());
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
